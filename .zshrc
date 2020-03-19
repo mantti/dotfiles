@@ -43,6 +43,8 @@ setopt CORRECT
 # save directory hierarchy to stack
 setopt AUTO_PUSHD
 setopt PUSHD_IGNORE_DUPS
+# We want to full completion also for aliased commands e.g. dotfiles
+unsetopt complete_aliases
 # }}}
 
 # set size of directory stack
