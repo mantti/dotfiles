@@ -1,0 +1,4 @@
+set editing-mode emacs
+"\C-[[A"        history-search-backward
+"\C-[[B"        history-search-forward
+
