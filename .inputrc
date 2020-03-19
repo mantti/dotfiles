@@ -1,0 +1,4 @@
+set editing-mode emacs
+set show-all-if-ambiguous On
+"\C-[[A"        history-search-backward
+"\C-[[B"        history-search-forward
