@@ -1,0 +1,22 @@
+# -*- sh -*-
+#
+#alias cd..='cd ..'
+#alias d='ls -laAF'
+alias date2="date '+%A %d. %B %Y (viikko %V)'"
+#alias doc="cd $HOME/Documents"
+alias j='jobs'
+alias l='less -iMqrwX'
+alias lalias='source ~/.aliases'
+alias pd='popd'
+alias ps2='ps -o pid,ppid,user,nice,vsz,rss,time,stime,pmem,pcpu,args'
+#alias q='jed'
+#alias src='cd /usr/local/src'
+[[ -x /usr/sbin/sestatus ]] && alias sudo='sudo -t unconfined_t -r unconfined_r' 
+function mcd() {mkdir $1 && cd $1}
+function precmd () { printf "\033k%s@%s:%s\033\\" "${USER}" "${HOSTNAME%%.*}" "${PWD/#$HOME/~}" }
+alias man='LC_CTYPE=fi_FI.iso88591 man'
+
+# Remote connections
+#alias -g ws='absalom joonatan zeus olmo masi basso breezer wheeler cinelli carnac'
+#alias -g luokka='adder counter coder flip flop shifter'
+
