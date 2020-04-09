@@ -37,6 +37,7 @@
 [submenu] (IM)
 	  [exec]   (Slack) {slack -silent}
 	  [exec]   (M$ Teams) {teams}
+	  [exec]   (Zoom) {zoom}
       [exec]   (kopete) {kopete}
 [end]
 [submenu] (Mail)
