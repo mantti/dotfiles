@@ -17,7 +17,10 @@ xmodmap "/home/mmoa/.Xmodmap"
 
 nm-applet &
 
-~/bin/fluxgui &
+#~/bin/fluxgui &
+DISPLAY=:0.0 redshift&
+DISPLAY=:0.1 redshift&
+
 
 ~/bin/clipit &
 # And last but not least we start fluxbox.
