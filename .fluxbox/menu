@@ -26,6 +26,7 @@
       [exec]   (konsole) {konsole}
 [end]
 [submenu] (Net)
+	  [exec]   (X2Go) {x2goclient}
 [submenu] (Browsers)
       [exec]   (firefox) {firefox}
       [exec]   (vncviewer) {vncviewer}

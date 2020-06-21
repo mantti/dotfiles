@@ -19,13 +19,14 @@ nm-applet &
 
 #~/bin/fluxgui &
 DISPLAY=:0.0 redshift&
-DISPLAY=:0.1 redshift&
+#DISPLAY=:0.1 redshift&
 
 
 ~/bin/clipit &
 # And last but not least we start fluxbox.
 # Because it is the last app you have to run it with ''exec'' before it.
 xfce4-panel &
+/usr/bin/xscreensaver &
 exec fluxbox
 # or if you want to keep a log:
 # exec fluxbox -log "/home/mmoa/.fluxbox/log"
