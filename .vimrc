@@ -20,7 +20,8 @@ set history=1000	" How many lines of history to remember
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
-Bundle 'chase/vim-ansible-yaml'
+Bundle 'pearofducks/ansible-vim'
+"Bundle 'chase/vim-ansible-yaml'
 Bundle 'ycm-core/YouCompleteMe'
 
 call vundle#end()            " required
@@ -69,11 +70,14 @@ endif
 " set paste
 
 " Some abreviations 
-ab @T @tut.fi
+ab @T @tuni.fi
 
 " Insert current time
 map \<F8> :r!date^MI# ^[j
 
+" Prevent accidental undo 
+inoremap <c-u> <c-g>u<c-u>
+inoremap <c-w> <c-g>u<c-w>
 function HideComments()"{{{
 set fdm=expr
 set fde=getline(v:lnum)=~'\\s*#'?1:getline(prevnonblank(v:lnum))=~'\\s*#'?1:getline(nextnonblank(v:lnum))=~'^\\s*#'?1:0
