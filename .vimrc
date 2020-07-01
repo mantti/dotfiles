@@ -60,6 +60,10 @@ ab @T @tut.fi
 " Insert current time
 map \<F8> :r!date^MI# ^[j
 
+" Prevent accidental undo 
+inoremap <c-u> <c-g>u<c-u>
+inoremap <c-w> <c-g>u<c-w>
+
 function HideComments()"{{{
 set fdm=expr
 set fde=getline(v:lnum)=~'\\s*#'?1:getline(prevnonblank(v:lnum))=~'\\s*#'?1:getline(nextnonblank(v:lnum))=~'^\\s*#'?1:0
