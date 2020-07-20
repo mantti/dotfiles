@@ -123,3 +123,8 @@ function lla() {
 
 # Load custom ls-colors
 [[ -r ~/share/my_dir_colors ]] && source ~/share/my_dir_colors
+
+# Create cache-dirs to /tmp if doesn't exists
+[[ ! -d /tmp/mozilla ]] && mkdir /tmp/mozilla
+[[ ! -d /tmp/firefox ]] && mkdir /tmp/firefox
+
