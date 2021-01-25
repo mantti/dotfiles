@@ -44,6 +44,8 @@ setopt CORRECT
 # save directory hierarchy to stack
 setopt AUTO_PUSHD
 setopt PUSHD_IGNORE_DUPS
+# Allow aliases to expanded before completion
+setopt COMPLETEALIASES
 # }}}
 
 # set size of directory stack
