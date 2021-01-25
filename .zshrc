@@ -1,5 +1,5 @@
 # emacs keybinds in commandline editing
-bindkey -e 
+#bindkey -e 
 
 # Check other mailboxes
 mailpath=(~/Mail/private'?New private mail'
@@ -14,7 +14,6 @@ PS1="%n@%B%m%b:%~%#"
 export HISTSIZE=1024
 export SAVEHIST=512
 export HISTFILE=~/.zsh_history
-export PATH="$HOME/bin:$PATH"
 
 # {{{ Set some zsh options
 # Every instance adds its own commands to history
@@ -62,10 +61,10 @@ zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
 #bindkey '\e[A' history-beginning-search-backward-end
 bindkey '^[OA' history-beginning-search-backward-end
+bindkey '^[[A' history-beginning-search-backward-end
 #bindkey '\e[B' history-beginning-search-forward-end
 bindkey '^[OB' history-beginning-search-forward-end
-bindkey '^[[A'  history-beginning-search-backward-end
-bindkey '^[[B'  history-beginning-search-forward-end
+bindkey '^[[B' history-beginning-search-forward-end
 bindkey '\e[3~' delete-char
 bindkey '\e[1~' beginning-of-line
 bindkey '\e[4~' end-of-line
@@ -105,11 +104,11 @@ function lla() {
 }
 
 # {{{ Running keychain if config found
-[[ -r ${HOME}/.keychain/my_keys ]] && \
-keychain --nogui --quick `cat ${HOME}/.keychain/my_keys`
+#[[ -r ${HOME}/.keychain/my_keys ]] && \
+#keychain --nogui --quick `cat ${HOME}/.keychain/my_keys`
 
-[[ -r ${HOME}/.keychain/`uname -n`-sh ]] && \
-	. ${HOME}/.keychain/`uname -n`-sh
+#[[ -r ${HOME}/.keychain/`uname -n`-sh ]] && \
+#	. ${HOME}/.keychain/`uname -n`-sh
 # }}}
 
 # {{{ Load some OS specific settings if available

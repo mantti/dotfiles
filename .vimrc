@@ -4,28 +4,15 @@ set foldenable
 set foldmethod=marker
 endif
 
-""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""
 " General
-""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""
 set nocompatible	" get out of horrible vi-compatible mode
-filetype off		" detect the type of file
+filetype on		" detect the type of file
 set history=1000	" How many lines of history to remember
 "filetype plugin on	" load filetype plugins
 "set isk+=_,$,@,%,",-	" none of these should be word dividers, so make them not be
 "set iskeywords+=_,$,@,%,",-	" none of these should be word dividers, so make them not be
-
-""""""""""""""""""""""""""""""""""""""""
-" Vundle
-""""""""""""""""""""""""""""""""""""""""
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-Bundle 'chase/vim-ansible-yaml'
-Bundle 'ycm-core/YouCompleteMe'
-
-call vundle#end()            " required
-filetype plugin indent on    " required
-
 """"""""""""""""""""""""""""""""""""""""
 " Theme/Colors
 """"""""""""""""""""""""""""""""""""""""
@@ -54,7 +41,6 @@ set tabstop=4		" tab spacing (settings below are just to unify it)
 set softtabstop=4	" unify
 set shiftwidth=4	" unify 
 set noexpandtab		" real tabs please!
-autocmd FileType YAML setlocal expandtab " We'll need to use spaces instead of tabulators
 set nowrap		" do not wrap lines  
 set smarttab		" use tabs at the start of a line, spaces elsewhere
 
@@ -99,19 +85,6 @@ set statusline=%<%f%<%{FileTime()}%<%h%m%r%=%-20.(line=%03l,col=%02c%V,totlin=%L
 set rulerformat=%15(%c%V\ %p%%%)
 set ls=2    
 
-" Python settings
-au BufNewFile,BufRead *.py *.yml
-    \ set tabstop=4
-    \ set softtabstop=4
-    \ set shiftwidth=4
-    \ set textwidth=110
-    \ set expandtab
-    \ set autoindent
-    \ set fileformat=unix
-    \ match BadWhitespace /\s\+$/
-
 " Use special settings for mail-mode
 autocmd FileType mail setlocal tw=8 tw=72 nosmartindent nocindent
 "// vim: ts=8 noet
-
-

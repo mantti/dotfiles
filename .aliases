@@ -16,7 +16,7 @@ alias src='cd /usr/local/src'
 function mcd() {mkdir $1 && cd $1}
 
 alias man='LC_CTYPE=fi_FI.iso88591 man'
-alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias dotfiles="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 
 # Remote connections
 #alias -g ws='absalom joonatan zeus olmo masi basso breezer wheeler cinelli carnac'
