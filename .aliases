@@ -22,3 +22,5 @@ alias dotfiles="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 #alias -g ws='absalom joonatan zeus olmo masi basso breezer wheeler cinelli carnac'
 #alias -g luokka='adder counter coder flip flop shifter'
 
+# For SELinux
+#alias sudo='/usr/bin/sudo -t unconfined_t -r unconfined_r'
