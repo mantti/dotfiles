@@ -73,7 +73,7 @@ bindkey '\e[1~' beginning-of-line
 bindkey '\e[4~' end-of-line
 bindkey '\e^_' copy-prev-shell-word
 bindkey '\eq' push-line-or-edit
-bindkey -s ^X /usr/local/src
+#bindkey -s ^X /usr/local/src
 # }}}
 
 # Use new completion
