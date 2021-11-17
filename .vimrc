@@ -112,6 +112,7 @@ au BufNewFile,BufRead *.py *.yml *.yaml
     \ setlocal expandtab
     \ setlocal smarttab
     \ setlocal autoindent
+    \ setlocal nosmartindent
     \ setlocal fileformat=unix
     \ match BadWhitespace /\s\+$/
 

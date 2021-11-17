@@ -1,26 +1,15 @@
 # -*- sh -*-
+# vi: ft=zsh
 #
-#alias cd..='cd ..'
 alias co="git checkout"
-#alias d='ls -laAF'
 alias date2="date '+%A %d. %B %Y (viikko %V)'"
-#alias del='rm -e'
-alias doc="cd $HOME/Documents"
 alias j='jobs'
 alias l='less -iMqrwX'
 alias lalias='source ~/.aliases'
 alias pd='popd'
 alias ps2='ps -o pid,ppid,user,nice,vsz,rss,time,stime,pmem,pcpu,args'
-#alias q='jed'
-alias src='cd /usr/local/src'
-function mcd() {mkdir $1 && cd $1}
-
-alias man='LC_CTYPE=fi_FI.iso88591 man'
+alias man='LC_CTYPE=en_DK.iso88591 man'
 alias dotfiles="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 
-# Remote connections
-#alias -g ws='absalom joonatan zeus olmo masi basso breezer wheeler cinelli carnac'
-#alias -g luokka='adder counter coder flip flop shifter'
-
 # For SELinux
-#alias sudo='/usr/bin/sudo -t unconfined_t -r unconfined_r'
+alias sudo='/usr/bin/sudo -t unconfined_t -r unconfined_r'

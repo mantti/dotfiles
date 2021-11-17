@@ -14,7 +14,7 @@ PS1="%n@%B%m%b:%~%#"
 export HISTSIZE=1024
 export SAVEHIST=512
 export HISTFILE=~/.zsh_history
-export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 
 # {{{ Set some zsh options
 # Every instance adds its own commands to history
@@ -46,6 +46,8 @@ setopt AUTO_PUSHD
 setopt PUSHD_IGNORE_DUPS
 # Allow aliases to expanded before completion
 setopt COMPLETEALIASES
+# Don't wait for double tab for ambiguous completions
+setopt AUTO_LIST
 # }}}
 
 # set size of directory stack
@@ -73,25 +75,23 @@ bindkey '\e[1~' beginning-of-line
 bindkey '\e[4~' end-of-line
 bindkey '\e^_' copy-prev-shell-word
 bindkey '\eq' push-line-or-edit
-#bindkey -s ^X /usr/local/src
 # }}}
 
 # Use new completion
 autoload -U compinit
 compinit
 
+# Load some completion settins
+[[ -r ~/.zsh_completion ]] && source ~/.zsh_completion
+
 # {{{ Load possible aliases 
-if [[ -r ~/share/aliases ]]; then
-  . ~/share/aliases
-fi
 if [[ -r ~/.aliases ]]; then
   . ~/.aliases
 fi
 # }}}
 
 # Add own zsh functions
-fpath=(~/share/zshfunctions $fpath)
-autoload beep
+[[ -d ~/.zsh_functions ]] && fpath=(~/.zsh_functions $fpath)
 
 [[ -z ${LS} ]] && LS=ls
 
@@ -106,6 +106,8 @@ function lla() {
         ${LS} --color -hCNla $* | less -EiMqrwX
 }
 
+function mcd() {mkdir $1 && cd $1}
+
 # {{{ Running keychain if config found
 [[ -r ${HOME}/.keychain/my_keys ]] && \
 keychain --nogui --quick `cat ${HOME}/.keychain/my_keys`
@@ -114,14 +116,9 @@ keychain --nogui --quick `cat ${HOME}/.keychain/my_keys`
 	. ${HOME}/.keychain/`uname -n`-sh
 # }}}
 
-# {{{ Load some OS specific settings if available
-[[ -r ${HOME}/share/zsh_paths ]] && \
-	. ${HOME}/share/zsh_paths
-# }}}
-
 # {{{ Check if we are under chroot
 [[ -n ${SCHROOT_USER} ]] && export PS1="%n@%B%m%b-(chroot):%~%#"
 # }}}
 
 # Load custom ls-colors
-[[ -r ~/share/my_dir_colors ]] && source ~/share/my_dir_colors
+[[ -r ~/.my_dir_colors ]] && source ~/.my_dir_colors

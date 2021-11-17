@@ -1,0 +1,8 @@
+# Show more verbose completions
+zstyle ':completion:*' verbose yes
+# More descriptive completions
+zstyle ':completion:*:*:*:*:descriptions' format '%F{green}-- %d --%f'
+# Group completions&descriptions be type
+zstyle ':completion:*' group-name ''
+# Try to complete files in order of modification time
+zstyle ':completion:*' file-sort modification
