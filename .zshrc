@@ -63,14 +63,12 @@ autoload history-search-end
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
 #bindkey '\e[A' history-beginning-search-backward-end
-bindkey '^[OA' history-beginning-search-backward-end
+bindkey "key[Up]" history-beginning-search-backward-end
 #bindkey '\e[B' history-beginning-search-forward-end
-bindkey '^[OB' history-beginning-search-forward-end
-bindkey '^[[A'  history-beginning-search-backward-end
-bindkey '^[[B'  history-beginning-search-forward-end
-bindkey '\e[3~' delete-char
-bindkey '\e[1~' beginning-of-line
-bindkey '\e[4~' end-of-line
+bindkey "key[Down]" history-beginning-search-forward-end
+bindkey "key[Delete]" delete-char
+bindkey "key[Home]" beginning-of-line
+bindkey "key[End]" end-of-line
 bindkey '\e^_' copy-prev-shell-word
 bindkey '\eq' push-line-or-edit
 #bindkey -s ^X /usr/local/src
