@@ -22,7 +22,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Bundle 'pearofducks/ansible-vim'
 "Bundle 'chase/vim-ansible-yaml'
-Bundle 'ycm-core/YouCompleteMe'
+"Bundle 'ycm-core/YouCompleteMe'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
