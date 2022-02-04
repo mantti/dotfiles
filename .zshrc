@@ -62,9 +62,11 @@ autoload history-search-end
 # {{{ Correct some keybindings
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
-#bindkey '\e[A' history-beginning-search-backward-end
+bindkey '^[OA' history-beginning-search-backward-end
+bindkey '\e[A' history-beginning-search-backward-end
 bindkey "key[Up]" history-beginning-search-backward-end
-#bindkey '\e[B' history-beginning-search-forward-end
+bindkey '^[OB' history-beginning-search-forward-end
+bindkey '\e[B' history-beginning-search-forward-end
 bindkey "key[Down]" history-beginning-search-forward-end
 bindkey "key[Delete]" delete-char
 bindkey "key[Home]" beginning-of-line
