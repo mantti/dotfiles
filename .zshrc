@@ -59,9 +59,13 @@ export PAGER=less
 # to enable history-beginning-search-backward-end 
 autoload history-search-end
 
+# Enable editing commandline in EDITOR
+autoload edit-command-line
+
 # {{{ Correct some keybindings
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
+zle -N edit-command-line
 bindkey '^[OA' history-beginning-search-backward-end
 bindkey '\e[A' history-beginning-search-backward-end
 bindkey "key[Up]" history-beginning-search-backward-end
@@ -73,6 +77,7 @@ bindkey "key[Home]" beginning-of-line
 bindkey "key[End]" end-of-line
 bindkey '\e^_' copy-prev-shell-word
 bindkey '\eq' push-line-or-edit
+bindkey "\ee" edit-command-line
 #bindkey -s ^X /usr/local/src
 # }}}
 
