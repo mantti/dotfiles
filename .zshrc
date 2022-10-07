@@ -1,5 +1,5 @@
 # emacs keybinds in commandline editing
-#bindkey -e 
+bindkey -e 
 
 # Check other mailboxes
 mailpath=(~/Mail/private'?New private mail'
@@ -14,6 +14,11 @@ PS1="%n@%B%m%b:%~%#"
 export HISTSIZE=1024
 export SAVEHIST=512
 export HISTFILE=~/.zsh_history
+export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
+export XDG_CONFIG_HOME=/run/user/${UID}
+
+# Use "proper" date and time formats
+export LC_TIME=en_DK.utf8
 
 # {{{ Set some zsh options
 # Every instance adds its own commands to history
@@ -43,8 +48,10 @@ setopt CORRECT
 # save directory hierarchy to stack
 setopt AUTO_PUSHD
 setopt PUSHD_IGNORE_DUPS
-# We want to full completion also for aliased commands e.g. dotfiles
-unsetopt complete_aliases
+# Allow aliases to expanded before completion
+setopt COMPLETEALIASES
+# Don't wait for double tab for ambiguous completions
+setopt AUTO_LIST
 # }}}
 
 # set size of directory stack
@@ -63,9 +70,9 @@ zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
 #bindkey '\e[A' history-beginning-search-backward-end
 bindkey '^[OA' history-beginning-search-backward-end
-bindkey '^[[A'  history-beginning-search-backward-end
 #bindkey '\e[B' history-beginning-search-forward-end
 bindkey '^[OB' history-beginning-search-forward-end
+bindkey '^[[A'  history-beginning-search-backward-end
 bindkey '^[[B'  history-beginning-search-forward-end
 bindkey '\e[3~' delete-char
 bindkey '\e[1~' beginning-of-line
@@ -78,18 +85,17 @@ bindkey '\eq' push-line-or-edit
 autoload -U compinit
 compinit
 
+# Load some completion settins
+[[ -r ~/.zsh_completion ]] && source ~/.zsh_completion
+
 # {{{ Load possible aliases 
-if [[ -r ~/share/aliases ]]; then
-  . ~/share/aliases
-fi
 if [[ -r ~/.aliases ]]; then
   . ~/.aliases
 fi
 # }}}
 
 # Add own zsh functions
-fpath=(~/share/zshfunctions $fpath)
-autoload beep
+[[ -d ~/.zsh_functions ]] && fpath=(~/.zsh_functions $fpath)
 
 [[ -z ${LS} ]] && LS=ls
 
@@ -104,17 +110,14 @@ function lla() {
         ${LS} --color -hCNla $* | less -EiMqrwX
 }
 
+function mcd() {mkdir $1 && cd $1}
+
 # {{{ Running keychain if config found
-#[[ -r ${HOME}/.keychain/my_keys ]] && \
-#keychain --nogui --quick `cat ${HOME}/.keychain/my_keys`
+[[ -r ${HOME}/.keychain/my_keys ]] && \
+keychain --nogui --quick `cat ${HOME}/.keychain/my_keys`
 
-#[[ -r ${HOME}/.keychain/`uname -n`-sh ]] && \
-#	. ${HOME}/.keychain/`uname -n`-sh
-# }}}
-
-# {{{ Load some OS specific settings if available
-[[ -r ${HOME}/share/zsh_paths ]] && \
-	. ${HOME}/share/zsh_paths
+[[ -r ${HOME}/.keychain/`uname -n`-sh ]] && \
+	. ${HOME}/.keychain/`uname -n`-sh
 # }}}
 
 # {{{ Check if we are under chroot
@@ -122,9 +125,4 @@ function lla() {
 # }}}
 
 # Load custom ls-colors
-[[ -r ~/share/my_dir_colors ]] && source ~/share/my_dir_colors
-
-# Create cache-dirs to /tmp if doesn't exists
-[[ ! -d /tmp/mozilla ]] && mkdir /tmp/mozilla
-[[ ! -d /tmp/firefox ]] && mkdir /tmp/firefox
-
+[[ -r ~/.my_dir_colors ]] && source ~/.my_dir_colors
