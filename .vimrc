@@ -13,6 +13,20 @@ set history=1000	" How many lines of history to remember
 "filetype plugin on	" load filetype plugins
 "set isk+=_,$,@,%,",-	" none of these should be word dividers, so make them not be
 "set iskeywords+=_,$,@,%,",-	" none of these should be word dividers, so make them not be
+
+""""""""""""""""""""""""""""""""""""""""
+" Vundle
+""""""""""""""""""""""""""""""""""""""""
+""set rtp+=~/.vim/bundle/Vundle.vim
+""call vundle#begin()
+""Plugin 'VundleVim/Vundle.vim'
+""Bundle 'pearofducks/ansible-vim'
+"""Bundle 'chase/vim-ansible-yaml'
+""Bundle 'ycm-core/YouCompleteMe'
+""
+""call vundle#end()            " required
+""filetype plugin indent on    " required
+
 """"""""""""""""""""""""""""""""""""""""
 " Theme/Colors
 """"""""""""""""""""""""""""""""""""""""
@@ -55,7 +69,7 @@ endif
 " set paste
 
 " Some abreviations 
-ab @T @tut.fi
+ab @T @tuni.fi
 
 " Insert current time
 map \<F8> :r!date^MI# ^[j
@@ -88,6 +102,19 @@ endf "}}}
 set statusline=%<%f%<%{FileTime()}%<%h%m%r%=%-20.(line=%03l,col=%02c%V,totlin=%L%)\%h%m%r%=%-30(,BfNm=%n%Y%)\%P\*%=%{CurTime()}
 set rulerformat=%15(%c%V\ %p%%%)
 set ls=2    
+
+" Python settings
+au BufNewFile,BufRead *.py *.yml *.yaml
+    \ setlocal tabstop=4
+    \ setlocal softtabstop=4
+    \ setlocal shiftwidth=4
+    \ setlocal textwidth=110
+    \ setlocal expandtab
+    \ setlocal smarttab
+    \ setlocal autoindent
+    \ setlocal nosmartindent
+    \ setlocal fileformat=unix
+    \ match BadWhitespace /\s\+$/
 
 " Use special settings for mail-mode
 autocmd FileType mail setlocal tw=8 tw=72 nosmartindent nocindent
