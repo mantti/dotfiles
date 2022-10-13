@@ -16,6 +16,9 @@ export SAVEHIST=512
 export HISTFILE=~/.zsh_history
 export PATH="$HOME/bin:$PATH"
 
+# Tell ruby to search also home-directory for gems
+export RUBYLIB="$HOME/.local/lib/ruby"
+
 # {{{ Set some zsh options
 # Every instance adds its own commands to history
 setopt INC_APPEND_HISTORY
