@@ -16,6 +16,7 @@ export SAVEHIST=512
 export HISTFILE=~/.zsh_history
 export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 export XDG_CONFIG_HOME=/run/user/${UID}
+export TERMINAL=alacritty
 
 # Use "proper" date and time formats
 export LC_TIME=en_DK.utf8
