@@ -8,8 +8,6 @@ mailpath=(~/Mail/private'?New private mail'
 # Name some directories to shorten promp mainly
 hash -d lsrc=/usr/local/src
 
-# set command prompt
-PS1="%n@%B%m%b:%~%#"
 # Command history
 export HISTSIZE=1024
 export SAVEHIST=512
@@ -62,9 +60,13 @@ export PAGER=less
 # to enable history-beginning-search-backward-end 
 autoload history-search-end
 
+# Enable editing commandline in EDITOR
+autoload edit-command-line
+
 # {{{ Correct some keybindings
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
+zle -N edit-command-line
 bindkey '^[OA' history-beginning-search-backward-end
 bindkey '\e[A' history-beginning-search-backward-end
 bindkey "key[Up]" history-beginning-search-backward-end
@@ -76,12 +78,25 @@ bindkey "key[Home]" beginning-of-line
 bindkey "key[End]" end-of-line
 bindkey '\e^_' copy-prev-shell-word
 bindkey '\eq' push-line-or-edit
+bindkey "\ee" edit-command-line
 #bindkey -s ^X /usr/local/src
 # }}}
 
 # Use new completion
 autoload -U compinit
+autoload -Uz vcs_info
 compinit
+
+zstyle ':vcs_info:git*' formats "%r/%S [%b%m%u%c] "
+zstyle ':vcs_info:git*' actionformats "%r/%S [%b|%a%m%u%c] "
+# Enable checking for (un)staged changes, enabling use of %u and %c
+zstyle ':vcs_info:*' check-for-changes true
+# Set custom strings for an unstaged vcs repo changes (*) and staged changes (+)
+zstyle ':vcs_info:*' unstagedstr ' *'
+zstyle ':vcs_info:*' stagedstr ' +'
+# # Set the format of the Git information for vcs_info
+# zstyle ':vcs_info:git:*' formats       '(%b%u%c)'
+# zstyle ':vcs_info:git:*' actionformats '(%b|%a%u%c)'
 
 # {{{ Load possible aliases 
 if [[ -r ~/share/aliases ]]; then
@@ -122,8 +137,20 @@ keychain --nogui --quick `cat ${HOME}/.keychain/my_keys`
 	. ${HOME}/share/zsh_paths
 # }}}
 
+function precmd() {
+	# For displaying git repo info on prompt
+	vcs_info
+	if [[ -z ${vcs_info_msg_0_} ]]; then
+		# Ok, not in vcs directory, so let's use normal prompt
+		PS1="%n@%B%m%b:%5~%#"
+	else
+		# Will use different prompt if on git repo directory
+		PS1="%n@%B%m%b:${vcs_info_msg_0_}%#"
+	fi
+}
+
 # {{{ Check if we are under chroot
-[[ -n ${SCHROOT_USER} ]] && export PS1="%n@%B%m%b-(chroot):%~%#"
+[[ -n ${SCHROOT_USER} ]] && PS1="%n@%B%m%b-(chroot):%~%#"
 # }}}
 
 # Load custom ls-colors
