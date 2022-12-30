@@ -125,5 +125,11 @@ keychain --nogui --quick `cat ${HOME}/.keychain/my_keys`
 [[ -n ${SCHROOT_USER} ]] && export PS1="%n@%B%m%b-(chroot):%~%#"
 # }}}
 
+# I have moved .cache to /dev/shm on lyijykerttu and it needs to be created after reboot
+if [[ "`hostname -s`" -eq "lyijykerttu" ]]
+then 
+	[[ ! -d /dev/shm/.cache ]] && mkdir /dev/shm/.cache
+fi
+
 # Load custom ls-colors
 [[ -r ~/.my_dir_colors ]] && source ~/.my_dir_colors
