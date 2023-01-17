@@ -117,6 +117,18 @@ au BufNewFile,BufRead *.py *.yml *.yaml
 
 " Use special settings for mail-mode
 autocmd FileType mail setlocal tw=8 tw=72 nosmartindent nocindent
+
+" Faster Scrolling
+nnoremap <C-e> 10<C-e>
+nnoremap <C-y> 10<C-y>
+
+" Load all plugins now.
+" Plugins need to be added to runtimepath before helptags can be generated.
+packloadall
+" Load all of the helptags now, after plugins have been loaded.
+" All messages and errors will be ignored.
+silent! helptags ALL
+
 "// vim: ts=8 noet
 
 
