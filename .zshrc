@@ -142,9 +142,11 @@ function precmd() {
 	vcs_info
 	if [[ -z ${vcs_info_msg_0_} ]]; then
 		# Ok, not in vcs directory, so let's use normal prompt
+        printf "\033]0;%s@%s:%s\007"
 		PS1="%n@%B%m%b:%5~%#"
 	else
 		# Will use different prompt if on git repo directory
+        printf "\033]0;%s@%s:%s\007"
 		PS1="%n@%B%m%b:${vcs_info_msg_0_}%#"
 	fi
 }
