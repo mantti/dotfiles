@@ -1,0 +1,14 @@
+[user]
+	name = Mika Anttila
+	useConfigOnly = true
+[color]
+	ui = auto
+[push]
+	default = simple
+[merge]
+	tool = diffconflicts
+[mergetool "diffconflicts"]
+	cmd = vim -c DiffConflicts \"$MERGED\" \"$BASE\" \"$LOCAL\" \"$REMOTE\"
+#	trustExitCode = flase
+[mergetool]
+	keepBackup = false
