@@ -54,6 +54,13 @@ export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 export EDITOR=vim
 export PAGER=less
 
+# Show git repo status on prompt when in repo-directory
+autoload -Uz vcs_info
+# This needs prompt_subst set, hence the name. So:
+setopt prompt_subst
+# PS1='%!-%3~ ${vcs_info_msg_0_}%# 
+PS1="%n@%B%m%b:%~ ${vcs_info_msg_0_}%#"
+
 # to enable history-beginning-search-backward-end 
 autoload history-search-end
 
@@ -91,11 +98,11 @@ fi
 fpath=(~/share/zshfunctions $fpath)
 autoload beep
 
-[[ -z ${LS} ]] && LS=ls
+[[ -z ${LS} ]] && LS="ls --group-directories-first"
 
 function mcd() {mkdir $1 && cd $1}
 function ll() {
-        ${LS} --color -hCNl $* | less -EiMqrwX
+        "${LS}" --group-directories-first --color -hCNl $* | less -EiMqrwX
 }
 function la() {
         ${LS} --color -hCNa $* | less -EiMqrwX
@@ -120,6 +127,13 @@ keychain --nogui --quick `cat ${HOME}/.keychain/my_keys`
 # {{{ Check if we are under chroot
 [[ -n ${SCHROOT_USER} ]] && export PS1="%n@%B%m%b-(chroot):%~%#"
 # }}}
+
+# I have moved .cache to /dev/shm on lyijykerttu and it needs to be created after reboot
+if [[ "`hostname -s`" -eq "Telli" ]]
+then
+       [[ ! -d /dev/shm/.cache ]] && mkdir /dev/shm/.cache
+fi
+
 
 # Load custom ls-colors
 [[ -r ~/share/my_dir_colors ]] && source ~/share/my_dir_colors
