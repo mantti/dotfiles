@@ -2,5 +2,7 @@
 [user]
 # Please adapt and uncomment the following lines:
 	name = Mika Anttila
-#	email = mika@Telli.(none)
 	useConfigOnly = true
+	email = mmoa@iki.fi
+[status]
+	showUntrackedFiles = no
