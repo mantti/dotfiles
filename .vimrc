@@ -13,19 +13,8 @@ set history=1000	" How many lines of history to remember
 "filetype plugin on	" load filetype plugins
 "set isk+=_,$,@,%,",-	" none of these should be word dividers, so make them not be
 "set iskeywords+=_,$,@,%,",-	" none of these should be word dividers, so make them not be
-
-""""""""""""""""""""""""""""""""""""""""
-" Vundle
-""""""""""""""""""""""""""""""""""""""""
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-Bundle 'chase/vim-ansible-yaml'
-Bundle 'ycm-core/YouCompleteMe'
-
-call vundle#end()            " required
-filetype plugin indent on    " required
-
+set spellang=en_uk	" default spellcheck language
+set nrformats-=octal    " Don't think 007 means octal numbers
 """"""""""""""""""""""""""""""""""""""""
 " Theme/Colors
 """"""""""""""""""""""""""""""""""""""""
