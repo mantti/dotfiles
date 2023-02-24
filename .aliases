@@ -9,6 +9,7 @@ alias doc="cd $HOME/Documents"
 alias j='jobs'
 alias l='less -iMqrwX'
 alias lalias='source ~/.aliases'
+alias ls="LC_COLLATE=C ls --group-directories-first $*"
 alias pd='popd'
 alias ps2='ps -o pid,ppid,user,nice,vsz,rss,time,stime,pmem,pcpu,args'
 #alias q='jed'

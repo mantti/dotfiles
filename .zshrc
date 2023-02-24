@@ -53,6 +53,8 @@ export DIRSTACKSIZE=32
 export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 export EDITOR=vim
 export PAGER=less
+# Don't clear page after reading man-page and show ansi colorcodes etc
+export LESS="-gRXQ" 
 
 # Show git repo status on prompt when in repo-directory
 autoload -Uz vcs_info
