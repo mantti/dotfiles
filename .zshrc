@@ -100,7 +100,7 @@ fi
 fpath=(~/share/zshfunctions $fpath)
 autoload beep
 
-[[ -z ${LS} ]] && LS="ls --group-directories-first"
+[[ -z ${LS} ]] && LS="ls --color=auto --group-directories-first"
 
 function mcd() {mkdir $1 && cd $1}
 function ll() {
