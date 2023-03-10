@@ -136,6 +136,9 @@ then
        [[ ! -d /dev/shm/.cache ]] && mkdir /dev/shm/.cache
 fi
 
-
 # Load custom ls-colors
 [[ -r ~/share/my_dir_colors ]] && source ~/share/my_dir_colors
+
+# Load custom git-friendly prompt
+[[ -r ~/share/git-prompt.zsh ]] && source ~/share/git-prompt.zsh
+[[ -r ~/share/pure.zsh ]] && source ~/share/pure.zsh
