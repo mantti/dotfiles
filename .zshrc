@@ -87,6 +87,8 @@ bindkey -s ^X /usr/local/src
 autoload -U compinit
 compinit
 
+# Use gits completion also for dotfiles-alias
+compdef dotfiles=git
 # {{{ Load possible aliases 
 if [[ -r ~/share/aliases ]]; then
   . ~/share/aliases
