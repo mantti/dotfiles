@@ -113,6 +113,9 @@ function lla() {
         ${LS} --color -hCNla $* | less -EiMqrwX
 }
 
+function monitors() {
+	xrandr --current | grep ' connected'
+}
 # {{{ Running keychain if config found
 [[ -r ${HOME}/.keychain/my_keys ]] && \
 keychain --nogui --quick `cat ${HOME}/.keychain/my_keys`
