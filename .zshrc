@@ -55,6 +55,8 @@ export EDITOR=vim
 export PAGER=less
 # Don't clear page after reading man-page and show ansi colorcodes etc
 export LESS="-gRXQ" 
+# Default folder for python virtualenvs
+export WORKON_HOME=~/Envs
 
 # Show git repo status on prompt when in repo-directory
 autoload -Uz vcs_info
@@ -124,6 +126,13 @@ keychain --nogui --quick `cat ${HOME}/.keychain/my_keys`
 
 [[ -r ${HOME}/.keychain/`uname -n`-sh ]] && \
 	. ${HOME}/.keychain/`uname -n`-sh
+keychain_cmd="$(which keychain)"
+
+#if [ -n "${keychain_cmd}" ]; then
+#eval $("${keychain_cmd}" --quiet --eval --agents ssh,gpg id_rsa)
+#fi
+SSH_AUTH_SOCKET=$(gpgconf --list-dirs | awk -F: '/agent-ssh-socket/{print $2}')
+export SSH_AUTH_SOCKET
 # }}}
 
 # {{{ Load some OS specific settings if available
@@ -140,6 +149,12 @@ if [[ "`hostname -s`" -eq "Telli" ]]
 then
        [[ ! -d /dev/shm/.cache ]] && mkdir /dev/shm/.cache
 fi
+
+# We want to gpg-agent instead of ssh-agent for yubikey
+#unset SSH_AGENT_PID
+#if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
+#	export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+#fi
 
 # Load custom ls-colors
 [[ -r ~/share/my_dir_colors ]] && source ~/share/my_dir_colors

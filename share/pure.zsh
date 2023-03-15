@@ -28,7 +28,8 @@ ZSH_THEME_GIT_PROMPT_STASHED="%{$fg[blue]%}⚑"
 ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg_bold[green]%}✔"
 
 # In the second line of the prompt $psvar[12] is read
-PROMPT=$'%F{blue}%~%f %F{242}$(gitprompt)%f
+#PROMPT=$'%F{blue}%~%f %F{242}$(gitprompt)%f
+PROMPT=$'%F{green}%~%f %F{242}$(gitprompt)%f
 %(12V.%F{242}%12v%f .)%(?.%F{magenta}.%F{red})❯%f '
 
 RPROMPT=''
