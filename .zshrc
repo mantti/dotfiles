@@ -162,3 +162,6 @@ fi
 # Load custom git-friendly prompt
 [[ -r ~/share/git-prompt.zsh ]] && source ~/share/git-prompt.zsh
 [[ -r ~/share/pure.zsh ]] && source ~/share/pure.zsh
+
+# load zsh completion for openstack
+[[ -r ~/share/openstack-complete ]] && source ~/share/openstack-complete
