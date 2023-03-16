@@ -3,3 +3,5 @@
 # Please adapt and uncomment the following lines:
 	name = Mika Anttila
 	email = mika.anttila@csc.fi
+[core]
+	editor = vim
