@@ -5,3 +5,5 @@
 	email = mika.anttila@csc.fi
 [core]
 	editor = vim
+[push]
+	default = simple
