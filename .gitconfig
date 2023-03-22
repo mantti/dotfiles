@@ -11,3 +11,4 @@
 	tool = meld
 [alias]
 	graph = log --all --graph --decorate --oneline
+	undo-commit = reset --soft HEAD^
