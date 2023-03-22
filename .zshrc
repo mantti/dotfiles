@@ -16,7 +16,7 @@ export SAVEHIST=10240
 export HISTFILE=~/.zsh_history
 export PATH="$HOME/bin:$PATH"
 
-# {{{ Set some zsh options
+# {{{ Set some zsh options{{{}}}
 # Every instance adds its own commands to history
 setopt INC_APPEND_HISTORY
 setopt APPEND_HISTORY
@@ -44,6 +44,8 @@ setopt CORRECT
 # save directory hierarchy to stack
 setopt AUTO_PUSHD
 setopt PUSHD_IGNORE_DUPS
+# Also complete commands inside aliases
+setopt COMPLETEALIASES
 # }}}
 
 # set size of directory stack
