@@ -7,3 +7,7 @@
 	editor = vim
 [push]
 	default = simple
+[diff]
+	tool = meld
+[alias]
+	graph = log --all --graph --decorate --oneline
