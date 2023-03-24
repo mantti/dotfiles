@@ -49,6 +49,7 @@ floating_modifier $mod
 # start a terminal
 # bindsym $mod+Return exec i3-sensible-terminal
 bindsym Ctrl+$mod+t exec i3-sensible-terminal
+bindsym Ctrl+$mod+f exec firefox
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -96,7 +97,7 @@ bindsym $mod+h split h
 bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
-bindsym $mod+Ctrl+f fullscreen toggle
+# bindsym $mod+Ctrl+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
