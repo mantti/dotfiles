@@ -26,3 +26,15 @@ alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 # CSC environments
 alias acb="deactivate; source ~/Envs/acb/bin/activate && cd ~/src/ops/ansible-cloud-bootstrap/"
 alias aka="deactivate; source ~/Envs/AKA/bin/activate && cd ~/src/ops/ansible-kaj-admin/"
+
+export AKA=/home/manttila/src/ops/aka ACB=/home/manttila/src/ops/acb
+function akassh () {
+    pushd -q ${AKA}
+    ssh -o "SetEnv TERM=xterm-256color" -F ssh.config $*
+    popd
+}
+function acbssh () {
+    pushd -q ${ACB}
+    ssh -o "SetEnv TERM=xterm-256color" -F ssh.config $*
+    popd
+}
