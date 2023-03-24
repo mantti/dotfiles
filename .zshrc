@@ -6,7 +6,7 @@ mailpath=(~/Mail/private'?New private mail'
 		  ~/Mail/root'?New root mail') 
 
 # Name some directories to shorten promp mainly
-hash -d lsrc=/usr/local/src
+#hash -d lsrc=/usr/local/src
 
 # set command prompt
 PS1="%n@%B%m%b:%~%#"
@@ -84,7 +84,7 @@ bindkey '\e[1~' beginning-of-line
 bindkey '\e[4~' end-of-line
 bindkey '\e^_' copy-prev-shell-word
 bindkey '\eq' push-line-or-edit
-bindkey -s ^X /usr/local/src
+#bindkey -s ^X /usr/local/src
 # }}}
 
 # Make ssh-command completion use only Host -parameter from ssh_config not Hostname
