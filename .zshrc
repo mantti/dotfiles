@@ -87,6 +87,10 @@ bindkey '\eq' push-line-or-edit
 bindkey -s ^X /usr/local/src
 # }}}
 
+# Make ssh-command completion use only Host -parameter from ssh_config not Hostname
+zstyle ':completion:*:(ssh|scp|ftp|sftp):*' hosts $hosts
+zstyle ':completion:*:(ssh|scp|ftp|sftp):*' users $users
+
 # Use new completion
 autoload -U compinit
 compinit
