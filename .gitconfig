@@ -6,3 +6,6 @@
 	email = mmoa@iki.fi
 [status]
 	showUntrackedFiles = no
+[alias]
+	undocommit = reset --soft HEAD^
+	graph = log --all --graph --decorate --oneline
