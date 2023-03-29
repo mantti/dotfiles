@@ -2,7 +2,6 @@
 #
 #alias cd..='cd ..'
 alias co="git checkout"
-#alias d='ls -laAF'
 alias date2="date '+%A %d. %B %Y (viikko %V)'"
 #alias del='rm -e'
 alias doc="cd $HOME/Documents"
@@ -17,7 +16,8 @@ alias src='cd /usr/local/src'
 #function mcd() {mkdir $1 && cd $1}
 
 alias man='LC_CTYPE=fi_FI.iso88591 man'
-alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+#alias dotfiles='GIT_DIR=$HOME/.dotfiles/ GIT_WORK_TREE=$HOME git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias dotfiles='git --git-dir=/home/manttila/.dotfiles/ --work-tree=/home/manttila'
 
 # Remote connections
 #alias -g ws='absalom joonatan zeus olmo masi basso breezer wheeler cinelli carnac'
