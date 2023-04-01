@@ -1,3 +1,4 @@
+#vim:set et sw=4:
 # emacs keybinds in commandline editing
 bindkey -e 
 
