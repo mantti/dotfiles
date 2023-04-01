@@ -101,6 +101,8 @@ au BufNewFile,BufRead *.py *.yml
 
 " Use special settings for mail-mode
 autocmd FileType mail setlocal tw=8 tw=72 nosmartindent nocindent
+" Use shortcut %% e.g. in :e to fill active buffers CWD
+cnoremap <expr> %%  getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 "// vim: ts=8 noet
 
 
