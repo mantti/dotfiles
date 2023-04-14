@@ -98,6 +98,7 @@ compinit
 
 # Use gits completion also for dotfiles-alias
 compdef dotfiles=git
+add-zsh-hook chpwd _git_dotfiles
 # {{{ Load possible aliases 
 if [[ -r ~/share/aliases ]]; then
   . ~/share/aliases
