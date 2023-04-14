@@ -1,0 +1,92 @@
+display_env() {   
+    if [ ! -z "$pout_env" ]; then
+	tput setaf 1;
+	echo "$pout_env"
+    fi
+}
+
+#PROMPT_COMMAND='display_env'
+
+
+export base_dir="$HOME/OpenRC"
+
+export pout_env=""
+
+oss() {
+
+      if [ $# -eq 0 ];  then    
+        export pout_env=""
+        export OS_AUTH_URL=""
+        return         
+      fi
+
+      if [ $1 = "pp" ];  then 
+        export pout_env="pouta_production"
+        my_path=$base_dir/pouta/project_2000168-openrc-pn.sh
+      fi
+
+      if [ $1 = "ppa" ];  then
+        export pout_env="pouta_production_admin"
+        my_path=$base_dir/pouta/project_2000651-openrc-pa.sh
+      fi
+
+      if [ $1 = "pt" ];  then
+        export pout_env="pouta_test"
+        my_path=$base_dir/pouta/project_2000168-openrc-tn.sh
+      fi
+
+      if [ $1 = "pta" ];  then
+        export pout_env="pouta_test_admin"
+        my_path=$base_dir/pouta/project_2000651-openrc-ta.sh
+      fi
+
+      if [ $1 = "pd" ];  then
+        export pout_env="pouta_devel"
+        my_path=$base_dir/pouta/project_2000168-openrc-dn.sh
+      fi
+
+      if [ $1 = "pda" ];  then
+        export pout_env="pouta_devel_admin"
+        my_path=$base_dir/pouta/project_2000651-openrc-da.sh
+      fi
+
+      if [ $1 = "ep" ];  then
+        export pout_env="epouta_production"
+        my_path=$base_dir/epouta/project_2000168-openrc-pn.sh
+      fi
+
+      if [ $1 = "epa" ];  then
+        export pout_env="epouta_production_admin"
+        my_path=$base_dir/epouta/project_2000651-openrc-pa.sh
+      fi
+
+      if [ $1 = "et" ];  then
+        export pout_env="epouta_test"
+        my_path=$base_dir/epouta/project_2000168-openrc-tn.sh
+      fi
+
+      if [ $1 = "eta" ];  then
+        export pout_env="epouta_test_admin"
+        my_path=$base_dir/epouta/project_2000651-openrc-ta.sh
+      fi
+
+      if [ $1 = "ed" ];  then
+        export pout_env="epouta_devel"
+        my_path=$base_dir/epouta/project_2000168-openrc-dn.sh
+      fi
+
+      if [ $1 = "eda" ];  then
+        export pout_env="epouta_devel_admin"
+        my_path=$base_dir/epouta/project_2000651-openrc-da.sh
+      fi
+
+	  case $1 in
+		*a)
+			keepassxc-cli clip ~/Nextcloud/kp.kdbx "Internet/Pouta-admin"
+			;;
+		*)
+			keepassxc-cli clip ~/Nextcloud/kp.kdbx "Internet/Pouta-user"
+			;;
+	  esac
+	  xclip -o -selection clipboard | source $my_path
+    }

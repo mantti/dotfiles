@@ -109,8 +109,8 @@ fi
 # }}}
 
 # Add own zsh functions
-fpath=(~/share/zshfunctions $fpath)
-autoload beep
+fpath+=('~/share/zshfunctions')
+autoload beep oss
 
 [[ -z ${LS} ]] && LS="ls --color=auto --group-directories-first"
 
