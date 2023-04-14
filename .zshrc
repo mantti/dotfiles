@@ -157,10 +157,11 @@ then
 fi
 
 # We want to gpg-agent instead of ssh-agent for yubikey
-#unset SSH_AGENT_PID
-#if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
-#	export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
-#fi
+unset SSH_AGENT_PID
+export GPG_TTY=$(tty)
+if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
+	export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+fi
 
 # Load custom ls-colors
 [[ -r ~/share/my_dir_colors ]] && source ~/share/my_dir_colors
