@@ -20,6 +20,9 @@ export CDPATH="/home/manttila/src/ops:/home/manttila/src/dev"
 # {{{ Set some zsh options{{{}}}
 # Every instance adds its own commands to history
 setopt INC_APPEND_HISTORY
+# Share history between sessions
+setopt SHARE_HISTORY
+# Append to history file
 setopt APPEND_HISTORY
 # Don't leave duplicate lines to history
 setopt HIST_IGNORE_ALL_DUPS
@@ -31,6 +34,8 @@ setopt HIST_NO_STORE
 #setopt HIST_NO_FUNCTIONS
 # Don't beep on end of list
 setopt NO_HIST_BEEP
+# Do not execute functions immediately upon history expansion
+setopt HIST_VERIFY
 
 # Don't autonice bg:ed processes
 setopt NO_BG_NICE
@@ -110,7 +115,7 @@ fi
 
 # Add own zsh functions
 fpath+=('~/share/zshfunctions')
-autoload beep oss
+autoload -U beep oss
 
 [[ -z ${LS} ]] && LS="ls --color=auto --group-directories-first"
 
