@@ -15,6 +15,7 @@ export HISTSIZE=10240
 export SAVEHIST=10240
 export HISTFILE=~/.zsh_history
 export PATH="$HOME/bin:$PATH"
+export CDPATH="/home/manttila/src/ops:/home/manttila/src/dev"
 
 # {{{ Set some zsh options{{{}}}
 # Every instance adds its own commands to history
