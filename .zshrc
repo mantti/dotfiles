@@ -102,8 +102,13 @@ autoload -U compinit
 compinit
 
 # Use gits completion also for dotfiles-alias
+fpath=(~/share/zshfunctions $fpath)
 compdef dotfiles=git
+autoload -Uz add-zsh-hook
 add-zsh-hook chpwd _git_dotfiles
+
+# Add own zsh functions
+autoload -U beep oss h
 # {{{ Load possible aliases 
 if [[ -r ~/share/aliases ]]; then
   . ~/share/aliases
@@ -113,9 +118,6 @@ if [[ -r ~/.aliases ]]; then
 fi
 # }}}
 
-# Add own zsh functions
-fpath+=('~/share/zshfunctions')
-autoload -U beep oss
 
 [[ -z ${LS} ]] && LS="ls --color=auto --group-directories-first"
 
