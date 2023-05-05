@@ -5,7 +5,7 @@
 	email = mika.anttila@csc.fi
 [core]
 	editor = vim
-	excludefile = /home/manttila/.gitignore
+	excludesfile = /home/manttila/.gitignore
 [push]
 	default = simple
 [diff]
