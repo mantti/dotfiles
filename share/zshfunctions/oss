@@ -83,9 +83,11 @@ oss() {
 	  case $1 in
 		*a)
 			keepassxc-cli clip ~/Nextcloud/kp.kdbx "Internet/Pouta-admin"
+			RPROMPT="%B$1%b"
 			;;
 		*)
 			keepassxc-cli clip ~/Nextcloud/kp.kdbx "Internet/Pouta-user"
+			RPROMPT="$1"
 			;;
 	  esac
 	  xclip -o -selection clipboard | source $my_path

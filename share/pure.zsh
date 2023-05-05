@@ -31,8 +31,10 @@ ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg_bold[green]%}✔"
 #PROMPT=$'%F{blue}%~%f %F{242}$(gitprompt)%f
 PROMPT=$'%F{green}%~%f %F{242}$(gitprompt)%f
 %(12V.%F{242}%12v%f .)%(?.%F{magenta}.%F{red})❯%f '
-
-RPROMPT=''
+RPOS=$(($COLUMNS-15))
+TEXT=${pout_env=None}
+MV=$terminfo[sc]$terminfo[cuu1]$terminfo[hpa]$RPOS
+#RPROMPT=%{$MV}%F{yellow}$(TEXT)%f$terminfo[rc]
 
 
 setup() {
