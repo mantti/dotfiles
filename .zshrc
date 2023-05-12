@@ -76,6 +76,9 @@ PS1="%n@%B%m%b:%~ ${vcs_info_msg_0_}%#"
 # to enable history-beginning-search-backward-end 
 autoload history-search-end
 
+autoload edit-command-line
+zle -N edit-command-line
+
 # {{{ Correct some keybindings
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
@@ -90,6 +93,7 @@ bindkey '\e[1~' beginning-of-line
 bindkey '\e[4~' end-of-line
 bindkey '\e^_' copy-prev-shell-word
 bindkey '\eq' push-line-or-edit
+bindkey '^V' edit-command-line
 #bindkey -s ^X /usr/local/src
 # }}}
 
@@ -106,6 +110,7 @@ fpath=(~/share/zshfunctions $fpath)
 compdef dotfiles=git
 autoload -Uz add-zsh-hook
 add-zsh-hook chpwd _git_dotfiles
+autoload -z edit-command-line
 
 # Add own zsh functions
 autoload -U beep oss h
