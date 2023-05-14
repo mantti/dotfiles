@@ -1,0 +1,17 @@
+# vim: syntax=zsh
+
+# This is meant to be used e.g. in chpwd-hook to enable 
+# git prompt variables when using dotfiles managing home's settings
+#
+# setting this to chpwd-hook:
+# add-zsh-hook chpwd _git_dotfiles
+
+# Will set GIT_DIR and GIT_WORK_TREE when cwd is ~
+# otherwise will clear those
+#
+# TODO: we propably should save settings if we have previous settings
+#       and return those 
+function _git_dotfiles() {
+	[[ $PWD == /home/manttila ]] && export GIT_DIR=/home/manttila/.dotfiles/ \
+			 GIT_WORK_TREE=/home/manttila || unset GIT_DIR GIT_WORK_TREE
+}

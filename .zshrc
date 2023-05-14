@@ -137,6 +137,10 @@ then
        [[ ! -d /dev/shm/.cache ]] && mkdir /dev/shm/.cache
 fi
 
+# Use gits completion also for dotfiles-alias
+compdef dotfiles=git
+autoload -U _git_dotfiles
+add-zsh-hook chpwd _git_dotfiles
 
 # Load custom ls-colors
 [[ -r ~/share/my_dir_colors ]] && source ~/share/my_dir_colors
