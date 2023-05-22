@@ -20,6 +20,8 @@ set nrformats-=octal    " Don't think 007 means octal numbers
 """"""""""""""""""""""""""""""""""""""""
 set background=dark	" we are using a dark background
 syntax on		" syntax highlighting on
+let g:solarized_termcolors=256 " Tell the solarized colorscheme to use all colors
+colorscheme solarized " Select solarized colorscheme <https://github.com/altercation/vim-colors-solarized>
 """"""""""""""""""""""""""""""""""""""""
 " Vim UI
 """"""""""""""""""""""""""""""""""""""""
