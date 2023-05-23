@@ -44,7 +44,7 @@ set cindent		" do c-style indenting
 set tabstop=4		" tab spacing (settings below are just to unify it)
 set softtabstop=4	" unify
 set shiftwidth=4	" unify 
-set noexpandtab		" real tabs please!
+set expandtab		" real tabs have been deprecated in so many places nowadays
 autocmd FileType YAML setlocal expandtab " We'll need to use spaces instead of tabulators
 set nowrap		" do not wrap lines  
 set smarttab		" use tabs at the start of a line, spaces elsewhere
