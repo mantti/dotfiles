@@ -21,7 +21,7 @@ export CDPATH="/home/manttila/src/ops:/home/manttila/src/dev"
 # Every instance adds its own commands to history
 setopt INC_APPEND_HISTORY
 # Share history between sessions
-setopt SHARE_HISTORY
+setopt NO_SHARE_HISTORY
 # Append to history file
 setopt APPEND_HISTORY
 # Don't leave duplicate lines to history
@@ -165,7 +165,7 @@ export SSH_AUTH_SOCKET
 # }}}
 
 # I have moved .cache to /dev/shm on lyijykerttu and it needs to be created after reboot
-if [[ "`hostname -s`" -eq "Telli" ]]
+if [[ "`hostname -s`" == "Telli" ]]
 then
        [[ ! -d /dev/shm/.cache ]] && mkdir /dev/shm/.cache
 fi
