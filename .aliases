@@ -26,7 +26,7 @@ alias dotfiles='git --git-dir=/home/manttila/.dotfiles/ --work-tree=/home/mantti
 # CSC environments
 alias acb="deactivate; source ~/Envs/acb/bin/activate && cd ~/src/ops/ansible-cloud-bootstrap/"
 alias aka="deactivate; source ~/Envs/AKA/bin/activate && cd ~/src/ops/ansible-kaj-admin/"
-
+alias powerlog="awk '{print strftime("%Y%m%d %H:%M:%S", $1) " " $2 " " $3}' < /var/lib/upower/history-charge-DELL_X77XY05-68-42255.dat"
 export AKA=/home/manttila/src/ops/aka ACB=/home/manttila/src/ops/acb
 function akassh () {
     pushd -q ${AKA}
