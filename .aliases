@@ -38,3 +38,4 @@ function acbssh () {
     ssh -o "SetEnv TERM=xterm-256color" -F ssh.config $*
     popd
 }
+alias battery='printf "%.2f%%\n" $(((`cat /sys/class/power_supply/BAT0/charge_now`/`cat /sys/class/power_supply/BAT0/charge_full`.0)*100))'
