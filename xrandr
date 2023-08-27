@@ -1,6 +1,8 @@
 # Set monitor layout
-xrandr --output DP-1-3 --rotate right --right-of DP-1-2 --output eDP-1 --below DP-1-2
+xrandr --output DP-1-3 --auto --rotate right --right-of DP-1-2 --auto --output eDP-1 --below DP-1-2
 # Screensaver timeout to 10 minutes
 xset s 600 610
 # Monitor powersaving at 12 minutes
 xset dpms 660 660 720
+# Disable some deadkeys
+xmodmap ~/.xmodmap-nodead
