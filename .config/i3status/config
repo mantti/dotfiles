@@ -1,20 +1,22 @@
 order += "battery 1"
 order += "disk /"
-order += "run_watch DHCP"
+#order += "run_watch DHCP"
 order += "path_exists VPN"
-order += "wireless wlp2s0"
-order += "ethernet eth0"
-order += "cpu_temperature 0"
+#order += "wireless wlp2s0"
+order += "wireless wlo1"
+order += "ethernet eno2"
+order += "cpu_temperature 8"
+order += "cpu_temperature 5"
 order += "load"
 order += "tztime local"
 order += "tztime helsinki"
 
-wireless wlp2s0 {
+wireless wlo1 {
         format_up = "W: (%quality at %essid, %bitrate) %ip"
         format_down = "W: down"
 }
 
-ethernet eth0 {
+ethernet eno2 {
         # if you use %speed, i3status requires the cap_net_admin capability
         format_up = "E: %ip (%speed)"
         format_down = "E: down"
@@ -56,19 +58,16 @@ load {
         format = "L: %5min"
 }
 
-cpu_temperature 0 {
+cpu_temperature 8 {
         format = "T: %degrees °C"
-        #path = "/sys/devices/platform/coretemp.0/temp1_input"
-        path = "/sys/class/thermal/thermal_zone0/temp"
+        path = "/sys/class/thermal/thermal_zone8/temp"
 }
 
+cpu_temperature 5 {
+        format = "T: %degrees °C"
+        path = "/sys/class/thermal/thermal_zone5/temp"
+}
 disk "/" {
         format = "%free"
 }
-
-
-
-
-
-
 
