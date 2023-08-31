@@ -18,7 +18,11 @@ set nrformats-=octal    " Don't think 007 means octal numbers
 """"""""""""""""""""""""""""""""""""""""
 " Theme/Colors
 """"""""""""""""""""""""""""""""""""""""
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+set termguicolors " Enable full 24-bit colors for gnome-terminal
 set background=dark	" we are using a dark background
+colorscheme solarized8	" https://github.com/lifepillar/vim-solarized8
 syntax on		" syntax highlighting on
 """"""""""""""""""""""""""""""""""""""""
 " Vim UI
