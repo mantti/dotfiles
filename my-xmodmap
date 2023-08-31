@@ -1,0 +1,19 @@
+keycode  66 = Control_L NoSymbol Control_L
+!keycode  66 = Caps_Lock NoSymbol Caps_Lock
+!keycode  35 = dead_diaeresis dead_circumflex bracketright braceright asciitilde dead_macron
+
+keycode  35 = dead_diaeresis asciicircum dead_diaeresis asciicircum asciitilde dead_macron asciitilde
+!keycode  21 = dead_acute dead_grave dead_acute dead_grave dead_cedilla dead_ogonek dead_cedilla
+keycode  21 = acute grave dead_acute dead_grave dead_cedilla dead_ogonek dead_cedilla
+!
+!
+! Swap Caps_Lock and Control_L
+!
+remove Lock = Caps_Lock
+remove Control = Control_L
+!keysym Control_L = Caps_Lock
+!keysym Caps_Lock = Control_L
+!add Lock = Caps_Lock
+add Control = Control_L
+
+
