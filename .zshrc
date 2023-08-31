@@ -60,7 +60,7 @@ export DIRSTACKSIZE=32
 # Some generic variables
 export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 export EDITOR=vim
-export PAGER=less
+export PAGER=/home/manttila/src/vimpager/vimpager
 # Don't clear page after reading man-page and show ansi colorcodes etc
 export LESS="-gRXQ" 
 # Default folder for python virtualenvs
