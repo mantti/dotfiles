@@ -139,7 +139,7 @@ fi
 
 # Use gits completion also for dotfiles-alias
 compdef dotfiles=git
-autoload -U _git_dotfiles
+autoload -U _git_dotfiles add-zsh-hook
 add-zsh-hook chpwd _git_dotfiles
 
 # Load custom ls-colors
