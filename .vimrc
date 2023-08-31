@@ -53,6 +53,9 @@ set smarttab		" use tabs at the start of a line, spaces elsewhere
 
 " Own modifications
 
+" From Practical vim
+cnoremap <expr> %%  getcmdtype() == ':' ? expand('%:h').'/' : '%%'
+
 " Use different coloscheme for vimdiff-cmd
 if &diff
     colorscheme blue
