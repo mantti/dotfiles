@@ -98,8 +98,8 @@ bindkey '^V' edit-command-line
 # }}}
 
 # Make ssh-command completion use only Host -parameter from ssh_config not Hostname
-zstyle ':completion:*:(ssh|scp|ftp|sftp):*' hosts $hosts
-zstyle ':completion:*:(ssh|scp|ftp|sftp):*' users $users
+#zstyle ':completion:*:(ssh|scp|ftp|sftp):*' hosts $hosts
+#zstyle ':completion:*:(ssh|scp|ftp|sftp):*' users $users
 
 # Use new completion
 autoload -U compinit
@@ -111,6 +111,9 @@ compdef dotfiles=git
 autoload -Uz add-zsh-hook
 add-zsh-hook chpwd _git_dotfiles
 autoload -z edit-command-line
+
+# Use ssh's completion for acbssh -alias
+compdef acbssh=ssh
 
 # Add own zsh functions
 autoload -U beep oss h
