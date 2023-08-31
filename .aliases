@@ -12,7 +12,6 @@ alias ls="LC_COLLATE=C ls --color=auto --group-directories-first $*"
 alias pd='popd'
 alias ps2='ps -o pid,ppid,user,nice,vsz,rss,time,stime,pmem,pcpu,args'
 #alias q='jed'
-alias src='cd /usr/local/src'
 #function mcd() {mkdir $1 && cd $1}
 
 alias man='LC_CTYPE=fi_FI.iso88591 man'
