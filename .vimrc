@@ -21,7 +21,7 @@ set nrformats-=octal    " Don't think 007 means octal numbers
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 set termguicolors " Enable full 24-bit colors for gnome-terminal
-"set background=dark	" we are using a dark background
+set background=dark	" we are using a dark background by default
 syntax on		" syntax highlighting on
 "let g:solarized_termcolors=256 " Tell the solarized colorscheme to use all colors
 colorscheme solarized " Select solarized colorscheme <https://github.com/altercation/vim-colors-solarized>
@@ -38,6 +38,7 @@ set showmatch		" show matching brackets
 set so=5		" Keep 10 lines (top/bottom) for scope
 set novisualbell	" don't blink
 set noerrorbells	" no noises
+set mouse=""        " we don't want mouse support from editor
 """"""""""""""""""""""""""""""""""""""""
 " Text Formatting/Layout
 """"""""""""""""""""""""""""""""""""""""
