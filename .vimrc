@@ -64,10 +64,13 @@ endif
 " set paste
 
 " Some abreviations 
-ab @T @tut.fi
+"ab @T @tut.fi
 
 " Insert current time
 map \<F8> :r!date^MI# ^[j
+
+" vim doesn't use scandinavic keys in normal mode, so let's put them to better use
+nnoremap ö ;    " This is where semicolon is in default US layot
 
 function HideComments()"{{{
 set fdm=expr
