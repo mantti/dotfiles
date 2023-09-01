@@ -1,4 +1,4 @@
 keycode  35 = dead_diaeresis asciicircum dead_diaeresis asciicircum asciitilde dead_macron asciitilde
 !keycode  21 = dead_acute dead_grave dead_acute dead_grave dead_cedilla dead_ogonek dead_cedilla
-keycode  21 = acute grave dead_acute dead_grave dead_cedilla dead_ogonek dead_cedilla
+keycode  21 = grave dead_acute dead_acute dead_grave dead_cedilla dead_ogonek dead_cedilla
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
