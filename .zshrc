@@ -115,6 +115,11 @@ autoload -z edit-command-line
 # Use ssh's completion for acbssh -alias
 compdef acbssh=ssh
 
+# Special keybinding for hostname-expansion
+zle -C host-expansion complete-word _generic
+zstyle ':completion:host-expansion:*' completer _hosts
+bindkey '^[h' host-expansion
+
 # Add own zsh functions
 autoload -U beep oss h
 # {{{ Load possible aliases 
