@@ -1,0 +1,30 @@
+# 2021-09-16, Sederlof, mini ~/.muttrc for CSC.
+set from = "mika.anttila@csc.fi"
+set realname = "Mika Anttila"
+set my_username = "manttila"
+
+# My credentials
+set imap_user = "$my_username"
+set smtp_url = "smtp://$my_username@msa.csc.fi:587/"
+
+# My mailboxes
+set folder = "imaps://zebra.csc.fi:993"
+set spoolfile = "+INBOX"
+set record="=Sent"
+set postponed="=Drafts"
+
+# Where to put the stuff
+set header_cache = "~/.cache/mutt/headers"
+set message_cachedir = "~/.cache/mutt/bodies"
+set certificate_file = "~/.mutt/certificates"
+
+set mail_check = 30
+set move = no
+set imap_keepalive = 900
+set editor = "nano"
+
+# Sort mails by thread, latest mail on top...
+set sort=threads
+set sort_browser=date
+set sort_aux=reverse-last-date-received
+
