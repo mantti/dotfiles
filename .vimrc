@@ -40,6 +40,7 @@ set so=5		" Keep 10 lines (top/bottom) for scope
 set novisualbell	" don't blink
 set noerrorbells	" no noises
 set mouse=""        " we don't want mouse support from editor
+set incsearch       " incremental search with /
 """"""""""""""""""""""""""""""""""""""""
 " Text Formatting/Layout
 """"""""""""""""""""""""""""""""""""""""
