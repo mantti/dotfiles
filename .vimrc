@@ -1,3 +1,4 @@
+" vim: spell
 "if using a version 6 vim, enable folding
 if version >= 600
 set foldenable
@@ -8,9 +9,9 @@ endif
 " General
 """"""""""""""""""""""""""""""""""""""""
 set nocompatible	" get out of horrible vi-compatible mode
-filetype off		" detect the type of file
+"filetype off		" detect the type of file
 set history=1000	" How many lines of history to remember
-"filetype plugin on	" load filetype plugins
+filetype plugin on	" load filetype plugins
 "set isk+=_,$,@,%,",-	" none of these should be word dividers, so make them not be
 "set iskeywords+=_,$,@,%,",-	" none of these should be word dividers, so make them not be
 set spelllang=en_gb	" default spellcheck language
@@ -49,11 +50,13 @@ set tabstop=4		" tab spacing (settings below are just to unify it)
 set softtabstop=4	" unify
 set shiftwidth=4	" unify 
 set expandtab		" real tabs have been deprecated in so many places nowadays
-autocmd FileType YAML setlocal expandtab " We'll need to use spaces instead of tabulators
+" autocmd FileType YAML setlocal expandtab " We'll need to use spaces instead of tabulators
 set nowrap		" do not wrap lines  
-set smarttab		" use tabs at the start of a line, spaces elsewhere
+"set smarttab		" use tabs at the start of a line, spaces elsewhere
 
 " Own modifications
+
+runtime macros/matchit.vim
 
 " Use different coloscheme for vimdiff-cmd
 if &diff
@@ -69,8 +72,15 @@ endif
 " Insert current time
 map \<F8> :r!date^MI# ^[j
 
-" vim doesn't use scandinavic keys in normal mode, so let's put them to better use
-nnoremap ö ;    " This is where semicolon is in default US layot
+" vim doesn't use Scandinavian keys in normal mode, so let's put them to better use
+"    nnoremap ö ;
+"    nnoremap Ö :
+"    nnoremap ; <
+"    nnoremap : >
+"    vnoremap ö ;
+"    vnoremap Ö :
+"    vnoremap ; <
+"    vnoremap : >
 
 function HideComments()"{{{
 set fdm=expr
@@ -97,16 +107,35 @@ set statusline=%<%f%<%{FileTime()}%<%h%m%r%=%-20.(line=%03l,col=%02c%V,totlin=%L
 set rulerformat=%15(%c%V\ %p%%%)
 set ls=2    
 
+" For tmux-window plugin
+"let g:tmux_navigator_no_mappings = 1
+"
+"noremap <silent> <C-m> :<C-U>TmuxNavigateLeft<cr>
+"noremap <silent> <C-n> :<C-U>TmuxNavigateDown<cr>
+"noremap <silent> <C-e> :<C-U>TmuxNavigateUp<cr>
+"noremap <silent> <C-i> :<C-U>TmuxNavigateRight<cr>
+"noremap <silent> <C-p> :<C-U>TmuxNavigatePrevious<cr>
+"
+"nmap m h
+"nmap n j
+"nmap e k
+"nmap i l
+"
+"vmap m h
+"vmap n j
+"vmap e k
+"vmap i l
+
 " Python settings
-au BufNewFile,BufRead *.py *.yml
-    \ set tabstop=4
-    \ set softtabstop=4
-    \ set shiftwidth=4
-    \ set textwidth=110
-    \ set expandtab
-    \ set autoindent
-    \ set fileformat=unix
-    \ match BadWhitespace /\s\+$/
+" au BufNewFile,BufRead *.py *.yml
+"     \ set tabstop=4
+"     \ set softtabstop=4
+"     \ set shiftwidth=4
+"     \ set textwidth=110
+"     \ set expandtab
+"     \ set autoindent
+"     \ set fileformat=unix
+"     \ match BadWhitespace /\s\+$/
 
 " Use special settings for mail-mode
 autocmd FileType mail setlocal tw=8 tw=72 nosmartindent nocindent
