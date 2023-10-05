@@ -51,7 +51,7 @@ setopt CORRECT
 setopt AUTO_PUSHD
 setopt PUSHD_IGNORE_DUPS
 # Also complete commands inside aliases
-setopt COMPLETEALIASES
+setopt NOCOMPLETEALIASES
 # }}}
 
 # set size of directory stack
