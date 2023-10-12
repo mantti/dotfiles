@@ -73,6 +73,9 @@ endif
 " Insert current time
 map \<F8> :r!date^MI# ^[j
 
+map <F11> :tabPrev
+map <F12> :tabNext
+
 " vim doesn't use Scandinavian keys in normal mode, so let's put them to better use
 "    nnoremap ö ;
 "    nnoremap Ö :
