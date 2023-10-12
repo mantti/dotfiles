@@ -52,6 +52,8 @@ setopt AUTO_PUSHD
 setopt PUSHD_IGNORE_DUPS
 # Also complete commands inside aliases
 setopt NOCOMPLETEALIASES
+# Don't exit from zsh with CTRL-D
+setopt IGNORE_EOF
 # }}}
 
 # set size of directory stack
