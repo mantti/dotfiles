@@ -18,42 +18,25 @@ export PATH="$HOME/bin:$PATH"
 export CDPATH="/home/manttila/src/ops:/home/manttila/src/dev"
 
 # {{{ Set some zsh options{{{}}}
-# Every instance adds its own commands to history
-setopt INC_APPEND_HISTORY
-# Share history between sessions
-setopt NO_SHARE_HISTORY
-# Append to history file
-setopt APPEND_HISTORY
-# Don't leave duplicate lines to history
-setopt HIST_IGNORE_ALL_DUPS
-# Remove unnecessary blanks before saving
-setopt HIST_REDUCE_BLANKS
-# Don't save history commands
-setopt HIST_NO_STORE
-# Don't save function definitions
-#setopt HIST_NO_FUNCTIONS
-# Don't beep on end of list
-setopt NO_HIST_BEEP
-# Do not execute functions immediately upon history expansion
-setopt HIST_VERIFY
+setopt INC_APPEND_HISTORY       # Every instance adds its own commands to history
+setopt NO_SHARE_HISTORY         # Share history between sessions 
+setopt APPEND_HISTORY           # Append to history file 
+setopt HIST_IGNORE_ALL_DUPS     # Don't leave duplicate lines to history 
+setopt HIST_REDUCE_BLANKS       # Remove unnecessary blanks before saving 
+setopt HIST_NO_STORE            # Don't save history commands 
+#setopt HIST_NO_FUNCTIONS       # Don't save function definitions 
+setopt NO_HIST_BEEP             # Don't beep on end of list 
+setopt HIST_VERIFY              # Do not execute functions immediately upon history expansion 
 
-# Don't autonice bg:ed processes
-setopt NO_BG_NICE
-# Don't kill bg-jobs on exit
-setopt NO_HUP 
-# No error on empty globs in commandline
-setopt CSH_NULL_GLOB
-# Don't beep on anything
-setopt NO_BEEP
-# use command correction
-setopt CORRECT
-# save directory hierarchy to stack
-setopt AUTO_PUSHD
-setopt PUSHD_IGNORE_DUPS
-# Also complete commands inside aliases
-setopt NOCOMPLETEALIASES
-# Don't exit from zsh with CTRL-D
-setopt IGNORE_EOF
+setopt NO_BG_NICE               # Don't autonice bg:ed processes 
+setopt NO_HUP                   # Don't kill bg-jobs on exit 
+setopt CSH_NULL_GLOB            # No error on empty globs in commandline 
+setopt NO_BEEP                  # Don't beep on anything 
+setopt CORRECT                  # use command correction 
+setopt AUTO_PUSHD               # save directory hierarchy to stack 
+setopt PUSHD_IGNORE_DUPS        # Don't save duplicates 
+setopt NOCOMPLETEALIASES        # Also complete commands inside aliases 
+setopt IGNORE_EOF               # Don't exit from zsh with CTRL-D 
 # }}}
 
 # set size of directory stack
