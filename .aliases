@@ -41,3 +41,5 @@ function acbssh () {
     popd
 }
 alias battery='printf "%.2f%%\n" $(((`cat /sys/class/power_supply/BAT0/charge_now`/`cat /sys/class/power_supply/BAT0/charge_full`.0)*100))'
+alias dark="echo 1000 | sudo tee /sys/class/backlight/intel_backlight/subsystem/intel_backlight/brightness"
+alias bright="echo 60000 | sudo tee /sys/class/backlight/intel_backlight/subsystem/intel_backlight/brightness"
