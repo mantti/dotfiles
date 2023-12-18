@@ -1,0 +1,1 @@
+abcde -a read,normalize,encode,tag,move,replaygain,clean -b -o flac -x
