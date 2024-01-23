@@ -2,6 +2,7 @@
 #
 #alias cd..='cd ..'
 alias co="git checkout"
+alias colemak="setxkbmap fi nodeadkeys ctrl:swapcaps_hyper && xmodmap ~/colemak_dh_iso_us_wide.xmodmap"
 alias date2="date '+%A %d. %B %Y (viikko %V)'"
 #alias del='rm -e'
 alias doc="cd $HOME/Documents"
