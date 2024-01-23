@@ -10,6 +10,10 @@
 	default = simple
 [diff]
 	tool = meld
+[difftool]
+    prompt = false
+[difftool "meld"]
+    cmd = meld "$LOCAL" "$REMOTE"
 [alias]
 	graph = log --all --graph --decorate --oneline
 	undo-commit = reset --soft HEAD^
