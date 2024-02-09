@@ -5,6 +5,7 @@ set foldenable
 set foldmethod=marker
 endif
 
+set guifont=Consolas\ 14
 """"""""""""""""""""""""""""""""""""""""
 " General
 """"""""""""""""""""""""""""""""""""""""
@@ -156,3 +157,4 @@ silent! helptags ALL
 
 " Try to detect our inventories for vim-ansible plugin
 au BufRead,BufNewFile */inventories/hosts.* set filetype=ansible_hosts
+au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
