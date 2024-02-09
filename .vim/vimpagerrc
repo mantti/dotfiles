@@ -1,0 +1,36 @@
+" vim: syntax=vim spell
+
+""""""""""""""""""""""""""""""""""""""""
+" General
+""""""""""""""""""""""""""""""""""""""""
+set nocompatible	" get out of horrible vi-compatible mode
+"filetype off		" detect the type of file
+set history=1000	" How many lines of history to remember
+filetype plugin on	" load filetype plugins
+"set isk+=_,$,@,%,",-	" none of these should be word dividers, so make them not be
+"set iskeywords+=_,$,@,%,",-	" none of these should be word dividers, so make them not be
+set spelllang=en_gb	" default spellcheck language
+set nrformats-=octal    " Don't think 007 means octal numbers
+set wrap            " We'd like too see whole lines when used as pager
+""""""""""""""""""""""""""""""""""""""""
+" Theme/Colors
+""""""""""""""""""""""""""""""""""""""""
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+set termguicolors " Enable full 24-bit colors for gnome-terminal
+set background=dark	" we are using a dark background by default
+syntax on		" syntax highlighting on
+"let g:solarized_termcolors=256 " Tell the solarized colorscheme to use all colors
+colorscheme solarized " Select solarized colorscheme <https://github.com/altercation/vim-colors-solarized>
+
+" Load all plugins now.
+" Plugins need to be added to runtimepath before helptags can be generated.
+packloadall
+" Load all of the helptags now, after plugins have been loaded.
+" All messages and errors will be ignored.
+silent! helptags ALL
+
+" Try to detect our inventories for vim-ansible plugin
+au BufRead,BufNewFile */inventories/hosts.* set filetype=ansible_hosts
+au BufFilePre,BufRead *.md set filetype=markdown
+set mouse=""        " we don't want mouse support from editor
